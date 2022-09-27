@@ -1,0 +1,27 @@
+if (APPLE)
+    if ("${CMAKE_HOST_SYSTEM_PROCESSOR}" STREQUAL "arm64")
+        set(CMAKE_OSX_ARCHITECTURES ${CMAKE_HOST_SYSTEM_PROCESSOR})
+    endif ()
+endif ()
+
+set(CMAKE_CXX_STANDARD 17)
+set(PYTHON_SOURCE_DIR ${PROJECT_SOURCE_DIR}/python)
+
+message("C++ Flags: ${CMAKE_CXX_FLAGS}")
+message("Build type: ${CMAKE_BUILD_TYPE}")
+message("CMAKE_OSX_ARCHITECTURES: ${CMAKE_OSX_ARCHITECTURES}")
+
+if (CLANG_EXECUTABLE)
+    message("Clang executable ${CLANG_EXECUTABLE}")
+elseif ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+    set(CLANG_EXECUTABLE ${CMAKE_CXX_COMPILER})
+    message("Clang executable using host compiler ${CLANG_EXECUTABLE}")
+else ()
+    find_program(CLANG_EXECUTABLE NAMES clang clang-10 clang-11 clang-9 clang-8 clang-7)
+    message("Clang executable found at ${CLANG_EXECUTABLE}")
+endif ()
+if (NOT CLANG_EXECUTABLE)
+    message(FATAL_ERROR "Cannot find any clang executable.")
+endif ()
+
+include_directories(${PROJECT_SOURCE_DIR})
