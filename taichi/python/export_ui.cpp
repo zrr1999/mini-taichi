@@ -23,7 +23,8 @@ struct PyWindow {
   GLuint add_shader(const std::string shader_text, int shader_type) { return window->add_shader(shader_text, shader_type); }
   GLuint add_program(const std::vector<GLuint>& shaders) { return window->add_program(shaders); }
 
-  std::vector<GLuint> shaders() { return window->shaders(); }
+  std::vector<GLuint> shaders() {
+    return window->shaders(); }
 
   std::vector<GLuint> programs() { return window->programs(); }
 
