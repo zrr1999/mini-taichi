@@ -1,11 +1,6 @@
 [submodule "third_party/glfw"]
 	path = third_party/glfw
-	url = https://github.com/glfw/glfw
-	shallow = true
+	url = git@github.com:glfw/glfw.git
 [submodule "third_party/glm"]
 	path = third_party/glm
-	url = https://github.com/g-truc/glm.git
-[submodule "third_party/eigen"]
-	path = third_party/eigen
-	url = https://gitlab.com/libeigen/eigen.git
-	branch = 3.3
+	url = git@github.com:g-truc/glm.git

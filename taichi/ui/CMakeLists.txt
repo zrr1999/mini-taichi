@@ -1,4 +1,4 @@
-add_library(taichi_ui STATIC
+add_library(taichi_ui SHARED
         common/window_base.cpp
         backends/vulkan/canvas.cpp
         backends/vulkan/window.cpp
